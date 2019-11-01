@@ -18,7 +18,7 @@
         <h:form>
             <div class="ui-g">
                 <div class="ui-g-12 ui-md-6 ui-lg-4">
-                        <h:outputText value="Alvaro fajardo"/> 
+                    <h:outputText value="Alvaro Fajardo"/> 
                         <br/>
                         <img title="Fajardo" src="img/candidatoUno.jpg" width="300" alt="300"></img>
                         <br/>
@@ -51,7 +51,14 @@
         
         <div class="ui-g">
             <div class="ui-g-12 ui-lg-12">
-                    <p:commandButton value="Finalizar"/>
+                <p:commandButton value="Finalizar" actionListener="#{votaciones.ganador()}" update="@form">
+                    <p:confirm message="¿Desea salir?" header="Aviso" />
+                </p:commandButton>
+                
+                <p:confirmDialog global="true">
+                    <p:commandButton value="Si" type="button" icon="ui-icon-check" styleClass="ui-confirmdialog-yes"/>
+                    <p:commandButton value="No" type="button" icon="ui-icon-close" styleClass="ui-confirmdialog-no"/>   
+                </p:confirmDialog> 
             </div>
         </div>
         
@@ -62,7 +69,6 @@
                         style="width:400px;height:300px" rendered="#{votaciones.grafica!=null}"
                         responsive="true"/>
         </h:panelGrid>
-        
     </h:form>
     </h:body>
 </html>
