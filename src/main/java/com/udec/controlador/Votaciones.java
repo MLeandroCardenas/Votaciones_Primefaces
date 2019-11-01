@@ -26,7 +26,7 @@ public class Votaciones implements Serializable {
     /**
      * variables para llevar el conteo de votos de cada candidato
      */
-    private int contadorUno,contadorDos,contadorTres;
+   private int contadorUno,contadorDos,contadorTres;
     
     /**
      * variable para crear el grafico y llenarlo
@@ -36,7 +36,7 @@ public class Votaciones implements Serializable {
     /**
      * Creates a new instance of Votaciones
      */
-    public Votaciones() {
+    public Votaciones(){
     }
     
     /**
@@ -47,46 +47,36 @@ public class Votaciones implements Serializable {
         contadorUno=0;
         contadorDos=0;
         contadorTres=0;
+        grafica = new PieChartModel();
+        crearGrafica();
+        vaciarGrafica();      
     }
     
     /**
      * metodo que incrementa de a uno el voto del candidato uno
-     * @return  el valor actual para verlo en la vista al usuario
+     *
+     * @param id ´para identificar el candidato
      */
-    public int votosCandidatoUno(){
-        contadorUno++;
-        setContadorUno(contadorUno);
+    public void votosCandidatos(int id){
+        if(id==1){
+            contadorUno++;
+            setContadorUno(contadorUno);
+        }
+        else if(id==2){
+            contadorDos++;
+            setContadorDos(contadorDos);
+        }
+        else{
+            contadorTres++;
+            setContadorTres(contadorTres);
+        }
         crearGrafica();
-        return getContadorUno();
     }
-    
-    /**
-     * metodo que incrementa de a uno el voto del candidato dos
-     * @return  el valor actual para verlo en la vista al usuario
-     */
-    public int votosCandidatoDos(){
-        contadorDos++;
-        setContadorDos(contadorDos);
-        crearGrafica();
-        return getContadorDos();
-    }
-    
-    /**
-     * metodo que incrementa de a uno el voto del candidato tres
-     * @return  el valor actual para verlo en la vista al usuario
-     */
-    public int votosCandidatoTres(){
-        contadorTres++;
-        setContadorTres(contadorTres);
-        crearGrafica();
-        return getContadorTres();
-    }
-    
+
     /**
      * metodo que crea la grafica con los datos actuales
      */
-    private void crearGrafica(){
-        grafica = new PieChartModel();
+    public void crearGrafica(){
         grafica.set("Alvaro Fajardo",getContadorUno());
         grafica.set("Diego Garzon",getContadorDos());
         grafica.set("Guillermo Aldana",getContadorTres());

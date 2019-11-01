@@ -22,7 +22,7 @@
                         <br/>
                         <img title="Fajardo" src="img/candidatoUno.jpg" width="300" alt="300"></img>
                         <br/>
-                        <p:commandButton value="Votar" action="#{votaciones.votosCandidatoUno()}" update="uno grafica"></p:commandButton>
+                        <p:commandButton value="Votar" action="#{votaciones.votosCandidatos(1)}" update="uno grafica"></p:commandButton>
                         <br/>
                         <h:outputLabel id="uno" value="#{votaciones.contadorUno}"/>
                 </div>
@@ -32,7 +32,7 @@
                         <br/>
                         <img title="Garzon" src="img/candidatoDos.jpg" width="150" alt="150"></img>
                         <br/>
-                        <p:commandButton value="Votar" actionListener="#{votaciones.votosCandidatoDos()}" update="dos grafica"></p:commandButton>
+                        <p:commandButton value="Votar" actionListener="#{votaciones.votosCandidatos(2)}" update="dos grafica"></p:commandButton>
                         <br/>
                         <h:outputLabel id="dos" value="#{votaciones.contadorDos}"/>    
                 </div>
@@ -43,7 +43,7 @@
                         <br/>
                         <img title="Aldana" src="img/candidatoTres.jpg" width="150" alt="150"></img>
                         <br/>
-                        <p:commandButton value="Votar" action="#{votaciones.votosCandidatoTres()}" update="tres grafica"></p:commandButton>
+                        <p:commandButton value="Votar" action="#{votaciones.votosCandidatos(3)}" update="tres grafica"></p:commandButton>
                         <br/>
                         <h:outputLabel id="tres" value="#{votaciones.contadorTres}"/>
                 </div>
