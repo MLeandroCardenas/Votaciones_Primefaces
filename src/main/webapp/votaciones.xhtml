@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Votaciones Municipales</title>
+        <style type="text/css">
+            .ui-g div {
+                background-color: #ededed;
+                text-align: center;
+                border: 1px solid #fafafa;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-6 ui-lg-4">
+                        <h:outputText value="Alvaro fajardo"/> 
+                        <br/>
+                        <img title="Fajardo" src="img/candidatoUno.jpg" width="300" alt="300"></img>
+                        <br/>
+                        <p:commandButton value="Votar" action="#{votaciones.votosCandidatoUno()}" update="uno grafica"></p:commandButton>
+                        <br/>
+                        <h:outputLabel id="uno" value="#{votaciones.contadorUno}"/>
+                </div>
+                
+                <div class="ui-g-12 ui-md-6 ui-lg-4">
+                        <h:outputText value="Diego Garzon"/>
+                        <br/>
+                        <img title="Garzon" src="img/candidatoDos.jpg" width="150" alt="150"></img>
+                        <br/>
+                        <p:commandButton value="Votar" actionListener="#{votaciones.votosCandidatoDos()}" update="dos grafica"></p:commandButton>
+                        <br/>
+                        <h:outputLabel id="dos" value="#{votaciones.contadorDos}"/>    
+                </div>
+                
+                <div class="ui-g-12 ui-lg-4">
+                        <br/>
+                        <h:outputText value="Guillermo Aldana"/>
+                        <br/>
+                        <img title="Aldana" src="img/candidatoTres.jpg" width="150" alt="150"></img>
+                        <br/>
+                        <p:commandButton value="Votar" action="#{votaciones.votosCandidatoTres()}" update="tres grafica"></p:commandButton>
+                        <br/>
+                        <h:outputLabel id="tres" value="#{votaciones.contadorTres}"/>
+                </div>
+            </div>
+        
+        <div class="ui-g">
+            <div class="ui-g-12 ui-lg-12">
+                    <p:commandButton value="Finalizar"/>
+            </div>
+        </div>
+        
+        <br/><br/>
+        
+        <h:panelGrid id="grafica" style="margin: 0 auto">
+            <p:chart type="pie" model="#{votaciones.grafica}" 
+                        style="width:400px;height:300px" rendered="#{votaciones.grafica!=null}"
+                        responsive="true"/>
+        </h:panelGrid>
+        
+    </h:form>
+    </h:body>
+</html>
+
